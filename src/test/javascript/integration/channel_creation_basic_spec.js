@@ -31,7 +31,7 @@ describe(__filename, function () {
                 expect(response.body.ttlDays).toEqual(120);
                 expect(response.body.description).toEqual('');
                 expect(response.body.replicationSource).toEqual('');
-                expect(response.body.storage).toEqual('SINGLE');
+                expect(response.body.storage).toEqual('BATCH');
             })
             .catch(function (error) {
                 expect(error).toBeNull();
