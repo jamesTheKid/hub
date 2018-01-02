@@ -36,7 +36,7 @@ public class ChannelConfigTest {
         assertEquals("", config.getDescription());
         assertTrue(config.getTags().isEmpty());
         assertEquals("", config.getReplicationSource());
-        assertEquals("SINGLE", config.getStorage());
+        assertEquals("BATCH", config.getStorage());
         assertEquals(null, config.getMutableTime());
         assertTrue(config.isAllowZeroBytes());
     }

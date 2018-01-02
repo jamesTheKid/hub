@@ -38,7 +38,7 @@ public class S3ConfigStrategyTest {
         List<String> names = new ArrayList<>();
         for (int i = 0; i < channels; i++) {
             String name = StringUtils.randomAlphaNumeric(10);
-            channelConfigs.add(ChannelConfig.builder().name(name).build());
+            channelConfigs.add(ChannelConfig.builder().name(name).storage(ChannelConfig.SINGLE).build());
             names.add(name);
         }
         for (int i = 0; i < iterations; i++) {

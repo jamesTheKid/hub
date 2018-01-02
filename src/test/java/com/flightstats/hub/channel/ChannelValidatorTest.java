@@ -126,6 +126,7 @@ public class ChannelValidatorTest {
     public void testMutableTime() throws Exception {
         validator.validate(getBuilder()
                 .name("mychan")
+                .storage(ChannelConfig.SINGLE)
                 .mutableTime(new DateTime())
                 .build(), null, false);
     }
@@ -140,7 +141,7 @@ public class ChannelValidatorTest {
 
     @Test
     public void testMutableTimeForward() throws Exception {
-        ChannelConfig first = getBuilder().name("mychan").mutableTime(new DateTime().minusDays(2)).build();
+        ChannelConfig first = getBuilder().name("mychan").storage(ChannelConfig.SINGLE).mutableTime(new DateTime().minusDays(2)).build();
         ChannelConfig second = first.toBuilder().mutableTime(new DateTime().minusDays(1)).build();
         validator.validate(first, second, false);
         validator.validate(first, first, false);
