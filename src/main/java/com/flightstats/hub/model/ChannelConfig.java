@@ -15,7 +15,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import static com.flightstats.hub.model.BuiltInTag.*;
+import static com.flightstats.hub.model.BuiltInTag.HISTORICAL;
+import static com.flightstats.hub.model.BuiltInTag.REPLICATED;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
 public class ChannelConfig implements Serializable, NamedType {
@@ -72,7 +73,7 @@ public class ChannelConfig implements Serializable, NamedType {
         }
 
         if (isBlank(storage)) {
-            this.storage = SINGLE;
+            this.storage = BATCH;
         } else {
             this.storage = StringUtils.upperCase(storage);
         }
