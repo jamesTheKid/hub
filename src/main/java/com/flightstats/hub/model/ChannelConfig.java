@@ -73,7 +73,11 @@ public class ChannelConfig implements Serializable, NamedType {
         }
 
         if (isBlank(storage)) {
-            this.storage = BATCH;
+            if (mutableTime == null) {
+                this.storage = BATCH;
+            } else {
+                this.storage = SINGLE;
+            }
         } else {
             this.storage = StringUtils.upperCase(storage);
         }

@@ -171,7 +171,8 @@ public class ChannelConfigTest {
     public void testMutableTime() throws Exception {
         ChannelConfig defaults = ChannelConfig.builder().name("defaults").build();
         DateTime mutableTime = TimeUtil.now();
-        ChannelConfig channelConfig = defaults.toBuilder().mutableTime(mutableTime).build();
+        ChannelConfig channelConfig = ChannelConfig.builder().name("defaults").mutableTime(mutableTime).build();
+        assertEquals(ChannelConfig.SINGLE, channelConfig.getStorage());
         assertEquals(mutableTime, channelConfig.getMutableTime());
 
         String json = channelConfig.toJson();
